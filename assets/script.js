@@ -1,6 +1,6 @@
 (() => {
-  // Troque pelo número real da clínica (DDI + DDD + número, só dígitos).
-  const WHATSAPP = "5500000000000";
+  // WhatsApp da clínica (DDI + DDD + número, só dígitos).
+  const WHATSAPP = "554735123486";
 
   // Menu mobile
   const toggle = document.querySelector(".nav-toggle");
@@ -35,7 +35,7 @@
 
   // Links de WhatsApp
   document.querySelectorAll("[data-whatsapp]").forEach((a) => {
-    a.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Gostaria de informações sobre atendimento no Espaço Arco-Íris.")}`;
+    a.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Gostaria de informações sobre atendimento no Espaço Arco Íris Psicologia.")}`;
   });
 
   // Máscara de telefone
@@ -88,7 +88,7 @@
     const data = new FormData(form);
     const msg = [
       `Olá! Meu nome é ${data.get("nome").trim()}.`,
-      `Busco atendimento para ${data.get("para")}, na modalidade ${data.get("modalidade")}.`,
+      `Busco atendimento para ${data.get("para")}. Melhor período: ${data.get("periodo")}.`,
       data.get("mensagem").trim() ? `\n${data.get("mensagem").trim()}` : "",
       `\nTelefone para retorno: ${data.get("telefone")}`,
     ].filter(Boolean).join("\n");
@@ -104,4 +104,16 @@
   });
 
   document.getElementById("ano").textContent = new Date().getFullYear();
+
+  // Aberto agora? (seg a sex, 8h às 20h, horário de Brasília)
+  const note = document.getElementById("aberto-agora");
+  try {
+    const parts = new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", weekday: "short", hour: "numeric", hour12: false }).formatToParts(new Date());
+    const wd = parts.find((p) => p.type === "weekday").value.replace(".", "");
+    const h = Number(parts.find((p) => p.type === "hour").value);
+    const weekday = !["sáb", "dom"].includes(wd);
+    const open = weekday && h >= 8 && h < 20;
+    note.textContent = open ? "Aberto agora · fecha às 20h" : "Fechado agora · abre segunda a sexta, às 8h";
+    note.classList.toggle("open", open);
+  } catch (_) { /* sem Intl: mantém só a tabela */ }
 })();
