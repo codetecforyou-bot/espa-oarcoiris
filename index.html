@@ -170,13 +170,21 @@ ul,ol{margin:0;padding:0;list-style:none}
 .flutua .num{font-size:1.75rem;font-weight:900;color:var(--verde);line-height:1}
 .flutua p{font-size:.8125rem;font-weight:700;line-height:1.35;color:var(--suave)}
 /* Scroll-scrub, desktop: o hero inteiro fica fixo enquanto o vídeo avança */
-@media (min-width:901px){
+@media (min-width:901px){.hero-foto{width:auto}}
+/* Telas altas: o topo inteiro fica fixo (só quando o texto cabe na altura) */
+@media (min-width:901px) and (min-height:760px){
   .scroll-video .hero{padding-block:0}
   .scroll-video .hero-track{height:280vh;height:280svh}
   .scroll-video .hero-sticky{position:sticky;top:76px;height:calc(100vh - 76px);height:calc(100svh - 76px);display:flex;align-items:center}
-  .hero-foto{width:auto}
   .arco{height:min(calc(100svh - 76px - 72px),780px);width:auto;margin-left:auto}
   .hero h1{font-size:clamp(2.25rem,min(5.2vw,7.4vh),4rem)}
+}
+/* Notebooks com tela baixa ou zoom: o texto rola normalmente e só o vídeo fica fixo, sem sobrepor nada */
+@media (min-width:901px) and (max-height:759px){
+  .hero-grid{align-items:start}
+  .arco{height:min(calc(100vh - 92px - 24px),640px);width:auto;margin-left:auto}
+  .scroll-video .media-track{height:185vh}
+  .scroll-video .media-sticky{position:sticky;top:92px}
 }
 @media (min-width:901px) and (max-height:760px){.hero .sub{font-size:1rem;margin-top:16px}.hero-acoes{margin-top:24px}.hero-info{margin-top:22px}.selo{margin-bottom:16px}}
 /* Mobile: só o vídeo fica fixo, logo após o texto */
@@ -1207,7 +1215,7 @@ body{font-size:1rem;line-height:1.7}
   var TOTAL = 164;
   var ctx = canvas.getContext("2d", { alpha: false });
   var arco = canvas.parentElement;
-  var desk = window.matchMedia("(min-width: 901px)");
+  var desk = window.matchMedia("(min-width: 901px) and (min-height: 760px)");
   var heroTrack = document.getElementById("heroTrack"), heroSticky = document.getElementById("heroSticky");
   var mediaTrack = document.getElementById("mediaTrack"), mediaSticky = document.getElementById("mediaSticky");
   var fill = document.getElementById("scrubFill"), ui = document.querySelector(".scrub");
