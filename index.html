@@ -787,11 +787,9 @@ body{font-size:1rem;line-height:1.7}
       <div class="sobre-fotos">
         <figure class="sf sf-1 img-anim">
           <img src="img/sobre/recepcao-luz-natural-640.webp" srcset="img/sobre/recepcao-luz-natural-640.webp 640w, img/sobre/recepcao-luz-natural-1170.webp 1170w" sizes="(min-width: 901px) 34vw, 75vw" width="1170" height="1554" loading="lazy" decoding="async" alt="Recepção com parede verde e o logo do Espaço Arco Íris, iluminada pela luz natural que entra pela janela, com poltrona de veludo verde e puff terracota.">
-          <figcaption>Luz natural</figcaption>
         </figure>
         <figure class="sf sf-2 img-anim" style="--d:.25s">
           <img src="img/sobre/cafe-acolhida-640.webp" srcset="img/sobre/cafe-acolhida-640.webp 640w, img/sobre/cafe-acolhida-1170.webp 1170w" sizes="(min-width: 901px) 20vw, 48vw" width="1170" height="1549" loading="lazy" decoding="async" alt="Garrafa térmica e pote de biscoitos sobre bandeja de madeira com alças douradas, em frente à parede verde.">
-          <figcaption>Café e acolhida</figcaption>
         </figure>
       </div>
       <div class="texto revela">
@@ -821,25 +819,21 @@ body{font-size:1rem;line-height:1.7}
           <button type="button" class="foto-btn" data-full="img/infantil/livros-era-uma-vez-1170.webp" data-alt="Estante de parede em arco verde com livros infantis sobre emoções, como “Quando me sinto feliz” e “Pode chorar, coração”, e a frase “Era uma vez” em madeira." aria-label="Ampliar foto: Livros sobre emoções">
             <img src="img/infantil/livros-era-uma-vez-640.webp" srcset="img/infantil/livros-era-uma-vez-640.webp 640w, img/infantil/livros-era-uma-vez-1170.webp 1170w" sizes="(min-width: 901px) 34vw, 100vw" width="1170" height="1517" loading="lazy" decoding="async" alt="Estante de parede em arco verde com livros infantis sobre emoções, como “Quando me sinto feliz” e “Pode chorar, coração”, e a frase “Era uma vez” em madeira.">
           </button>
-          <figcaption>Livros sobre emoções</figcaption>
         </figure>
         <figure class="foto i4 img-anim" style="--d:.12s">
           <button type="button" class="foto-btn" data-full="img/infantil/parede-ursinho-1170.webp" data-alt="Parede verde-clara com ilustrações de urso, cacto e cenoura, e tapete infantil com estampa de bichinhos e pinheiros." aria-label="Ampliar foto: Brincar também é cuidar">
             <img src="img/infantil/parede-ursinho-640.webp" srcset="img/infantil/parede-ursinho-640.webp 640w, img/infantil/parede-ursinho-1170.webp 1170w" sizes="(min-width: 901px) 46vw, 100vw" width="1169" height="1521" loading="lazy" decoding="async" alt="Parede verde-clara com ilustrações de urso, cacto e cenoura, e tapete infantil com estampa de bichinhos e pinheiros.">
           </button>
-          <figcaption>Brincar também é cuidar</figcaption>
         </figure>
         <figure class="foto i2 img-anim" style="--d:.24s">
           <button type="button" class="foto-btn" data-full="img/infantil/cabaninha-1170.webp" data-alt="Cabaninha de tecido cru com bonecos de monstrinhos coloridos de feltro dentro, sobre piso de mármore." aria-label="Ampliar foto: A cabaninha">
             <img src="img/infantil/cabaninha-640.webp" srcset="img/infantil/cabaninha-640.webp 640w, img/infantil/cabaninha-1170.webp 1170w" sizes="(min-width: 901px) 23vw, 50vw" width="1170" height="1529" loading="lazy" decoding="async" alt="Cabaninha de tecido cru com bonecos de monstrinhos coloridos de feltro dentro, sobre piso de mármore.">
           </button>
-          <figcaption>A cabaninha</figcaption>
         </figure>
         <figure class="foto i3 img-anim" style="--d:.36s">
           <button type="button" class="foto-btn" data-full="img/infantil/parede-borboleta-1170.webp" data-alt="Borboleta de madeira rosa sobre parede verde-clara decorada com corações e flores em aquarela." aria-label="Ampliar foto: Cores suaves">
             <img src="img/infantil/parede-borboleta-640.webp" srcset="img/infantil/parede-borboleta-640.webp 640w, img/infantil/parede-borboleta-1170.webp 1170w" sizes="(min-width: 901px) 23vw, 50vw" width="1170" height="1547" loading="lazy" decoding="async" alt="Borboleta de madeira rosa sobre parede verde-clara decorada com corações e flores em aquarela.">
           </button>
-          <figcaption>Cores suaves</figcaption>
         </figure>
       </div>
     </div>
@@ -983,7 +977,7 @@ body{font-size:1rem;line-height:1.7}
       atual = (i + btns.length) % btns.length;
       var b = btns[atual];
       img.src = b.getAttribute("data-full"); img.alt = b.getAttribute("data-alt");
-      leg.textContent = b.closest("figure").querySelector("figcaption").textContent;
+      var fc = b.closest("figure").querySelector("figcaption"); leg.textContent = fc ? fc.textContent : "";
     }
     btns.forEach(function(b, i){ b.addEventListener("click", function(){ origem = b; mostrar(i); dlg.showModal(); }); });
     document.getElementById("lbFechar").addEventListener("click", function(){ dlg.close(); });
