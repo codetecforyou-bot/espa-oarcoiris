@@ -146,6 +146,41 @@ ul,ol{margin:0;padding:0;list-style:none}
   .scroll-video .flutua{display:none}
 }
 
+/* Consultório */
+.consultorio{background:#fff;position:relative}
+.cons-topo{display:grid;grid-template-columns:1.1fr .9fr;gap:24px 64px;align-items:end;margin-bottom:clamp(36px,5vw,56px)}
+.cons-topo .cab{margin-bottom:0}
+.cons-topo .sub{margin-top:0}
+.mosaico{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:16px}
+.foto{position:relative;margin:0;border-radius:var(--raio);overflow:hidden;background:var(--verde-claro)}
+.foto-a{grid-column:1/3;grid-row:1/3;border-radius:999px 999px var(--raio) var(--raio)}
+.foto-btn{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;aspect-ratio:3/4}
+.foto-a .foto-btn{aspect-ratio:auto}
+.foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,.8,.3,1)}
+.foto:hover img{transform:scale(1.04)}
+.foto figcaption{position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px);padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--verde-escuro);font-size:.75rem;font-weight:700;line-height:1.3;pointer-events:none;box-shadow:0 6px 16px -10px rgba(14,59,34,.6)}
+.foto-a figcaption{left:20px;bottom:20px;font-size:.8125rem;padding:9px 16px;background:var(--verde);color:#fff}
+.foto-btn:focus-visible{outline:3px solid var(--dourado);outline-offset:-3px}
+@media (max-width:900px){
+  .cons-topo{grid-template-columns:1fr}
+  .mosaico{grid-template-columns:1fr 1fr;gap:12px}
+  .foto-a{grid-column:1/-1;grid-row:auto}
+  .foto-a .foto-btn{aspect-ratio:4/5}
+  .foto figcaption{left:8px;bottom:8px;font-size:.6875rem;padding:6px 10px}
+}
+/* Lightbox */
+.lightbox{border:0;padding:0;background:transparent;max-width:min(92vw,620px);max-height:92vh;overflow:visible;color:#fff}
+.lightbox::backdrop{background:rgba(14,59,34,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lightbox img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:var(--raio);margin:0 auto;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.lb-legenda{text-align:center;font-weight:700;font-size:.9375rem;margin-top:14px}
+.lb-btn{position:absolute;width:48px;height:48px;border-radius:50%;border:0;display:grid;place-items:center;background:#fff;color:var(--verde);cursor:pointer;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.lb-btn svg{width:22px;height:22px}
+.lb-btn:hover{background:var(--dourado-claro)}
+.lb-fechar{top:-16px;right:-16px}
+.lb-ant{left:-24px;top:calc(50% - 40px)}
+.lb-prox{right:-24px;top:calc(50% - 40px)}
+@media (max-width:700px){.lb-fechar{top:8px;right:8px}.lb-ant{left:8px}.lb-prox{right:8px}}
+
 /* Serviços */
 .servicos{background:#fff}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -294,6 +329,7 @@ ul,ol{margin:0;padding:0;list-style:none}
     <nav aria-label="Principal">
       <button class="burger" aria-expanded="false" aria-controls="menu"><span></span><b class="sr-only">Abrir menu</b></button>
       <ul class="menu" id="menu">
+        <li><a href="#consultorio">Consultório</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
@@ -344,6 +380,51 @@ ul,ol{margin:0;padding:0;list-style:none}
     </div>
     </div>
    </div>
+  </section>
+
+  <!-- CONSULTÓRIO -->
+  <section class="secao consultorio" id="consultorio" aria-labelledby="t-consultorio">
+    <div class="wrap">
+      <div class="cons-topo">
+        <div class="cab revela">
+          <p class="tag">Nosso consultório</p>
+          <h2 class="titulo" id="t-consultorio">Nosso consultório, <em>no conforto</em> que você precisa</h2>
+        </div>
+        <p class="sub revela">Luz suave, cores que acolhem e salas reservadas. Cada detalhe foi pensado para que você e sua família se sintam à vontade desde o primeiro encontro.</p>
+      </div>
+      <div class="mosaico">
+        <figure class="foto foto-a revela">
+          <button type="button" class="foto-btn" data-full="img/consultorio/sala-verde-1086.webp" data-alt="Sala de atendimento com parede verde, sofás de veludo terracota, mesas de madeira e tapete redondo claro." aria-label="Ampliar foto: Sala de atendimento">
+            <img src="img/consultorio/sala-verde-640.webp" srcset="img/consultorio/sala-verde-640.webp 640w, img/consultorio/sala-verde-1086.webp 1086w" sizes="(min-width: 901px) 50vw, 100vw" width="1086" height="1448" loading="lazy" decoding="async" alt="Sala de atendimento com parede verde, sofás de veludo terracota, mesas de madeira e tapete redondo claro.">
+          </button>
+          <figcaption>Sala de atendimento</figcaption>
+        </figure>
+        <figure class="foto foto-b revela">
+          <button type="button" class="foto-btn" data-full="img/consultorio/estante-foque-no-hoje-1086.webp" data-alt="Canto da sala com estante de madeira iluminada, planta pendente, poltrona terracota e a frase “Foque no hoje” na parede." aria-label="Ampliar foto: Foque no hoje">
+            <img src="img/consultorio/estante-foque-no-hoje-640.webp" srcset="img/consultorio/estante-foque-no-hoje-640.webp 640w, img/consultorio/estante-foque-no-hoje-1086.webp 1086w" sizes="(min-width: 901px) 25vw, 50vw" width="1086" height="1448" loading="lazy" decoding="async" alt="Canto da sala com estante de madeira iluminada, planta pendente, poltrona terracota e a frase “Foque no hoje” na parede.">
+          </button>
+          <figcaption>Foque no hoje</figcaption>
+        </figure>
+        <figure class="foto foto-c revela">
+          <button type="button" class="foto-btn" data-full="img/consultorio/temos-o-hoje-1086.webp" data-alt="Parede clara com a frase “Temos o hoje” escrita à mão, ao lado do sofá terracota." aria-label="Ampliar foto: Temos o hoje">
+            <img src="img/consultorio/temos-o-hoje-640.webp" srcset="img/consultorio/temos-o-hoje-640.webp 640w, img/consultorio/temos-o-hoje-1086.webp 1086w" sizes="(min-width: 901px) 25vw, 50vw" width="1086" height="1448" loading="lazy" decoding="async" alt="Parede clara com a frase “Temos o hoje” escrita à mão, ao lado do sofá terracota.">
+          </button>
+          <figcaption>Temos o hoje</figcaption>
+        </figure>
+        <figure class="foto foto-d revela">
+          <button type="button" class="foto-btn" data-full="img/consultorio/estante-arco-iris-1086.webp" data-alt="Estante com arco-íris decorativo em tons de rosa, difusor de aromas, ampulheta, livros e bordado “Deus guia, cuida e abençoa sempre”." aria-label="Ampliar foto: Detalhes que acolhem">
+            <img src="img/consultorio/estante-arco-iris-640.webp" srcset="img/consultorio/estante-arco-iris-640.webp 640w, img/consultorio/estante-arco-iris-1086.webp 1086w" sizes="(min-width: 901px) 25vw, 50vw" width="1086" height="1448" loading="lazy" decoding="async" alt="Estante com arco-íris decorativo em tons de rosa, difusor de aromas, ampulheta, livros e bordado “Deus guia, cuida e abençoa sempre”.">
+          </button>
+          <figcaption>Detalhes que acolhem</figcaption>
+        </figure>
+        <figure class="foto foto-e revela">
+          <button type="button" class="foto-btn" data-full="img/consultorio/bordado-nao-ignore-1086.webp" data-alt="Bordado com a frase “Não ignore o que te atravessa o peito” ao lado de livros, ampulheta e vasos com trigo." aria-label="Ampliar foto: Não ignore o que te atravessa o peito">
+            <img src="img/consultorio/bordado-nao-ignore-640.webp" srcset="img/consultorio/bordado-nao-ignore-640.webp 640w, img/consultorio/bordado-nao-ignore-1086.webp 1086w" sizes="(min-width: 901px) 25vw, 50vw" width="1086" height="1448" loading="lazy" decoding="async" alt="Bordado com a frase “Não ignore o que te atravessa o peito” ao lado de livros, ampulheta e vasos com trigo.">
+          </button>
+          <figcaption>Não ignore o que te atravessa o peito</figcaption>
+        </figure>
+      </div>
+    </div>
   </section>
 
   <!-- SERVIÇOS -->
@@ -533,6 +614,15 @@ ul,ol{margin:0;padding:0;list-style:none}
   </div>
 </footer>
 
+<!-- AMPLIAÇÃO DE FOTOS -->
+<dialog class="lightbox" id="lightbox" aria-label="Foto ampliada do consultório">
+  <img id="lbImg" alt="">
+  <p class="lb-legenda" id="lbLegenda"></p>
+  <button type="button" class="lb-btn lb-fechar" id="lbFechar" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button type="button" class="lb-btn lb-ant" id="lbAnt" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+  <button type="button" class="lb-btn lb-prox" id="lbProx" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+</dialog>
+
 <!-- WHATSAPP FIXO -->
 <a class="wa-fixo" data-wa href="https://wa.me/554735123486" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
   <span class="rotulo" aria-hidden="true">Fale com a gente</span>
@@ -572,6 +662,31 @@ ul,ol{margin:0;padding:0;list-style:none}
   } catch(e){}
 
   document.getElementById("ano").textContent = new Date().getFullYear();
+
+
+  /* ===== Ampliação das fotos do consultório ===== */
+  (function(){
+    var dlg = document.getElementById("lightbox");
+    if (!dlg || typeof dlg.showModal !== "function") return;
+    var btns = [].slice.call(document.querySelectorAll(".foto-btn")), atual = 0, origem = null;
+    var img = document.getElementById("lbImg"), leg = document.getElementById("lbLegenda");
+    function mostrar(i){
+      atual = (i + btns.length) % btns.length;
+      var b = btns[atual];
+      img.src = b.getAttribute("data-full"); img.alt = b.getAttribute("data-alt");
+      leg.textContent = b.closest("figure").querySelector("figcaption").textContent;
+    }
+    btns.forEach(function(b, i){ b.addEventListener("click", function(){ origem = b; mostrar(i); dlg.showModal(); }); });
+    document.getElementById("lbFechar").addEventListener("click", function(){ dlg.close(); });
+    document.getElementById("lbAnt").addEventListener("click", function(){ mostrar(atual - 1); });
+    document.getElementById("lbProx").addEventListener("click", function(){ mostrar(atual + 1); });
+    dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener("keydown", function(e){ if (e.key === "ArrowLeft") mostrar(atual - 1); if (e.key === "ArrowRight") mostrar(atual + 1); });
+    dlg.addEventListener("close", function(){ if (origem) origem.focus(); });
+    var x0 = null;
+    dlg.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; }, { passive: true });
+    dlg.addEventListener("touchend", function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) mostrar(atual + (dx < 0 ? 1 : -1)); x0 = null; });
+  })();
 
   /* ===== Tour em vídeo controlado pela rolagem =====
      Os 164 quadros do vídeo (30 fps) são carregados como WebP e desenhados num
