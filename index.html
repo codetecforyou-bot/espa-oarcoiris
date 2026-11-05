@@ -546,6 +546,53 @@ body{font-size:1rem;line-height:1.7}
   .sf.img-anim{--cobre:var(--fundo)}
 }
 
+
+/* Equipe (branco): um destaque vertical + dois cards horizontais */
+.equipe{background:#fff}
+.eq-topo{display:grid;gap:24px 64px;align-items:end;margin-bottom:clamp(36px,5vw,56px)}
+.eq-topo .cab{margin-bottom:0}
+.eq-topo .sub{margin-top:0}
+.eq-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.membro{background:var(--fundo);border-radius:calc(var(--raio) + 8px);overflow:hidden;display:grid}
+.membro-foto{margin:0;position:relative;overflow:hidden;background:var(--verde-claro)}
+.membro-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.membro-texto{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:10px}
+.membro h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:900;line-height:1.05;letter-spacing:-.035em;color:var(--verde)}
+.cargo{font-weight:700;font-size:.9375rem;color:var(--dourado-texto)}
+.bio{color:var(--suave);font-size:.9375rem}
+.membro-link{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9375rem;color:var(--verde);text-decoration:none;align-self:flex-start;border-bottom:2px solid var(--dourado);padding-bottom:2px}
+.membro-link svg{width:18px;height:18px}
+.membro-link:hover{color:var(--verde-escuro);border-color:var(--verde)}
+.m1{grid-column:1/6;grid-row:1/3;background:var(--verde);grid-template-rows:auto 1fr}
+.m1 .membro-foto{aspect-ratio:4/4.4;border-radius:999px 999px 0 0;margin:clamp(16px,2vw,24px) clamp(16px,2vw,24px) 0}
+.m1 h3{color:#fff;font-size:clamp(2rem,3.4vw,2.75rem)}
+.m1 .cargo{color:var(--dourado-claro)}
+.m1 .bio{color:var(--verde-claro);font-size:1rem}
+.m1 .membro-link{color:#fff}
+.m1 .membro-link:hover{color:var(--dourado-claro);border-color:var(--dourado-claro)}
+.m2,.m3{grid-column:6/13;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.m3{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.m3 .membro-foto{order:2}
+.m2 .membro-foto,.m3 .membro-foto{min-height:100%;aspect-ratio:auto}
+.m3{background:var(--verde-claro)}
+@media (min-width:901px){.eq-topo{grid-template-columns:1.2fr .8fr}}
+@media (max-width:1000px){
+  .eq-grid{grid-template-columns:1fr}
+  .m1,.m2,.m3{grid-column:1;grid-row:auto}
+  .m1 .membro-foto{aspect-ratio:4/4.2}
+}
+@media (max-width:1000px) and (min-width:601px){.m2,.m3{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}.m3 .membro-foto{order:0}}
+@media (max-width:600px){
+  .m2,.m3{grid-template-columns:1fr}
+  .m3 .membro-foto{order:0}
+  .m2 .membro-foto,.m3 .membro-foto{aspect-ratio:4/4.2}
+}
+@media (prefers-reduced-motion:no-preference){
+  .equipe .img-anim{--cobre:var(--fundo)}
+  .m1 .img-anim{--cobre:var(--verde)}
+  .m3 .img-anim{--cobre:var(--verde-claro)}
+}
+
 /* Imagens: revelação suave ao entrar na tela (cortina + zoom de saída) */
 .mapa{position:relative}
 @media (prefers-reduced-motion:no-preference){
@@ -586,6 +633,7 @@ body{font-size:1rem;line-height:1.7}
       <ul class="menu" id="menu">
         <li><a href="#consultorio">Consultório</a></li>
         <li><a href="#servicos">Especialidades</a></li>
+        <li><a href="#equipe">Equipe</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#sobre">Sobre</a></li>
@@ -730,6 +778,53 @@ body{font-size:1rem;line-height:1.7}
         </article>
       </div>
       <p class="ponte revela"><b>Não sabe por onde começar?</b> Muitas vezes a avaliação orienta a psicoterapia, e as duas caminham juntas. Na primeira conversa indicamos o caminho mais adequado para você ou seu filho.</p>
+    </div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section class="secao equipe" id="equipe" aria-labelledby="t-equipe">
+    <div class="wrap">
+      <div class="eq-topo">
+        <div class="cab revela">
+          <h2 class="titulo" id="t-equipe">Nossa equipe, <em>pronta para te atender</em></h2>
+        </div>
+        <p class="sub revela">Psicólogas que acompanham crianças, adolescentes, adultos e famílias, cada uma com um olhar cuidadoso para a sua história.</p>
+      </div>
+      <div class="eq-grid">
+        <article class="membro m1" aria-labelledby="t-yasmin-cotchello">
+          <figure class="membro-foto img-anim" style="--d:0s">
+            <img src="img/equipe/yasmin-cotchello-480.webp" srcset="img/equipe/yasmin-cotchello-480.webp 480w, img/equipe/yasmin-cotchello-627.webp 627w" sizes="(min-width: 901px) 34vw, 100vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Yasmin Cotchello, sorrindo, com blusa preta, apoiando o rosto na mão.">
+          </figure>
+          <div class="membro-texto revela">
+            <h3 id="t-yasmin-cotchello">Yasmin Cotchello</h3>
+            <p class="cargo">Psicóloga clínica</p>
+            <p class="bio">Psicóloga clínica com atuação em psicologia infantil a partir dos 2 anos, além de adolescentes e adultos.</p>
+            <a class="membro-link" data-wa data-msg="Olá! Vi o site do Espaço Arco Íris e gostaria de agendar com a psicóloga Yasmin Cotchello." href="https://wa.me/554735123486" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar com Yasmin</a>
+          </div>
+        </article>
+        <article class="membro m2" aria-labelledby="t-rafaela-moraes-de-oliveira">
+          <figure class="membro-foto img-anim" style="--d:.12s">
+            <img src="img/equipe/rafaela-moraes-de-oliveira-480.webp" srcset="img/equipe/rafaela-moraes-de-oliveira-480.webp 480w, img/equipe/rafaela-moraes-de-oliveira-627.webp 627w" sizes="(min-width: 901px) 18vw, 40vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Rafaela Moraes de Oliveira, sorrindo, sentada, com blusa branca de babados.">
+          </figure>
+          <div class="membro-texto revela">
+            <h3 id="t-rafaela-moraes-de-oliveira">Rafaela Moraes de Oliveira</h3>
+            <p class="cargo">Psicóloga</p>
+            <p class="bio">Psicóloga com atuação em psicologia infantil, atendendo crianças a partir dos 2 anos de idade. Seu trabalho é voltado para o desenvolvimento emocional saudável, manejo comportamental e apoio às famílias nas diferentes fases da infância.</p>
+            <a class="membro-link" data-wa data-msg="Olá! Vi o site do Espaço Arco Íris e gostaria de agendar com a psicóloga Rafaela Moraes de Oliveira." href="https://wa.me/554735123486" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar com Rafaela</a>
+          </div>
+        </article>
+        <article class="membro m3" aria-labelledby="t-luana-bellini">
+          <figure class="membro-foto img-anim" style="--d:.24s">
+            <img src="img/equipe/luana-bellini-480.webp" srcset="img/equipe/luana-bellini-480.webp 480w, img/equipe/luana-bellini-627.webp 627w" sizes="(min-width: 901px) 18vw, 40vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Luana Bellini, sorrindo, com camisa clara, em frente a uma parede verde.">
+          </figure>
+          <div class="membro-texto revela">
+            <h3 id="t-luana-bellini">Luana Bellini</h3>
+            <p class="cargo">Psicóloga</p>
+            <p class="bio">Especialista em Saúde Mental Coletiva, Psicologia Jurídica e Avaliação Psicológica, com especialização em Neuropsicologia e formação em Psicopatologia (em andamento).</p>
+            <a class="membro-link" data-wa data-msg="Olá! Vi o site do Espaço Arco Íris e gostaria de agendar com a psicóloga Luana Bellini." href="https://wa.me/554735123486" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar com Luana</a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -903,7 +998,7 @@ body{font-size:1rem;line-height:1.7}
       </div>
       <div>
         <h3>Navegação</h3>
-        <ul><li><a href="#servicos">Especialidades</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#localizacao">Localização</a></li></ul>
+        <ul><li><a href="#servicos">Especialidades</a></li><li><a href="#equipe">Equipe</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#localizacao">Localização</a></li></ul>
       </div>
       <div>
         <h3>Contato</h3>
