@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Espaço Arco Íris Psicologia · Psicóloga infantil em Guaramirim – SC</title>
-<meta name="description" content="Psicologia infantil, orientação de pais, adultos e neuropsicopedagogia em Guaramirim – SC. Ambiente acolhedor, nota 5,0 no Google. Agende pelo WhatsApp (47) 3512-3486.">
+<title>Espaço Arco Íris · Avaliação neuropsicológica e psicoterapia em Guaramirim – SC</title>
+<meta name="description" content="Avaliação neuropsicológica e psicoterapia infantil, de adolescentes e adultos em Guaramirim – SC. Ambiente acolhedor, nota 5,0 no Google. Agende pelo WhatsApp (47) 3512-3486.">
 <meta name="theme-color" content="#145A32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -194,6 +194,44 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:600px){.cards{grid-template-columns:1fr}}
 
+/* Especialidades (pilares) */
+.pilares{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.pilar{background:var(--fundo);border:1px solid var(--linha);border-radius:calc(var(--raio) + 6px);padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;gap:18px}
+.pilar-terapia{background:var(--verde);border-color:var(--verde);color:#fff}
+.pilar-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pilar-terapia .icone{background:var(--dourado);color:var(--verde-escuro)}
+.idades{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dourado-texto);background:#fff;border:1px solid var(--linha);padding:7px 12px;border-radius:999px}
+.pilar-terapia .idades{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:var(--dourado-claro)}
+.pilar h3{font-size:clamp(1.625rem,3vw,2.125rem);font-weight:900;color:var(--verde);letter-spacing:-.02em}
+.pilar-terapia h3{color:#fff}
+.pilar-desc{color:var(--suave)}
+.pilar-terapia .pilar-desc{color:var(--verde-claro)}
+.pilar-sub{font-weight:700;font-size:.875rem;margin-bottom:-6px}
+.pilar-lista{display:grid;gap:10px}
+.pilar-lista li{display:flex;gap:10px;align-items:flex-start;font-size:.9375rem}
+.pilar-lista svg{width:20px;height:20px;flex:none;color:var(--verde);margin-top:2px}
+.etapas{counter-reset:e;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.etapas li{counter-increment:e;background:#fff;border:1px solid var(--linha);border-radius:14px;padding:14px 14px 14px;display:grid;gap:4px;font-size:.8125rem;color:var(--suave);line-height:1.4}
+.etapas li::before{content:counter(e);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--dourado);color:var(--verde-escuro);font-weight:900;font-size:.8125rem}
+.etapas b{color:var(--texto);font-size:.875rem}
+.fases{display:grid;gap:0;border-top:1px solid rgba(220,235,211,.25)}
+.fases li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(220,235,211,.25);align-items:baseline}
+.fase-tag{font-weight:900;color:var(--dourado-claro);font-size:1rem}
+.fases p{color:var(--verde-claro);font-size:.9375rem}
+.fases b{color:#fff}
+.pilar .btn{margin-top:auto;align-self:flex-start}
+.ponte{margin:28px auto 0;max-width:760px;text-align:center;color:var(--suave);font-size:1rem;padding:18px 24px;border-radius:999px;background:var(--fundo);border:1px dashed var(--verde-folha)}
+.ponte b{color:var(--verde)}
+@media (max-width:1000px){.pilares{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .etapas{grid-template-columns:1fr}
+  .etapas li{grid-template-columns:26px 1fr;column-gap:12px;align-items:center}
+  .etapas li::before{grid-row:span 2}
+  .fases li{grid-template-columns:1fr;gap:4px}
+  .pilar .btn{align-self:stretch}
+  .ponte{border-radius:var(--raio);text-align:left}
+}
+
 /* Diferenciais */
 .diferenciais{background:var(--verde);color:#fff;position:relative;overflow:hidden}
 .diferenciais::after{content:"";position:absolute;right:-180px;bottom:-260px;width:620px;height:620px;border-radius:50%;border:90px solid rgba(212,175,55,.12);pointer-events:none}
@@ -330,7 +368,7 @@ ul,ol{margin:0;padding:0;list-style:none}
       <button class="burger" aria-expanded="false" aria-controls="menu"><span></span><b class="sr-only">Abrir menu</b></button>
       <ul class="menu" id="menu">
         <li><a href="#consultorio">Consultório</a></li>
-        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#servicos">Especialidades</a></li>
         <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
         <li><a href="#sobre">Sobre</a></li>
@@ -352,14 +390,14 @@ ul,ol{margin:0;padding:0;list-style:none}
           <span class="estrelas" aria-hidden="true">★★★★★</span> 5,0 no Google · 21 avaliações
         </a>
         <h1>Seu filho anda diferente e você <em>não sabe</em> como ajudar?</h1>
-        <p class="sub">Irritação, ansiedade, dificuldade na escola ou isolamento podem ser a forma de a criança dizer que algo não vai bem. No Espaço Arco Íris, em Guaramirim, acolhemos a criança e orientamos a família para que vocês atravessem esse momento juntos.</p>
+        <p class="sub">Irritação, ansiedade, dificuldade de atenção ou na escola podem ser sinais de que algo não vai bem. No Espaço Arco Íris, em Guaramirim, <b>investigamos com a avaliação neuropsicológica</b> e <b>cuidamos com a psicoterapia</b>, da infância à vida adulta.</p>
         <div class="hero-acoes">
           <a class="btn btn-wa" data-wa href="https://wa.me/554735123486" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Quero agendar uma conversa</a>
-          <a class="btn btn-linha" href="#servicos">Ver serviços</a>
+          <a class="btn btn-linha" href="#servicos">Ver especialidades</a>
         </div>
         <ul class="hero-info">
-          <li><svg aria-hidden="true"><use href="#check"/></svg><span><b>Seg a sex</b>, das 8h às 20h</span></li>
-          <li><svg aria-hidden="true"><use href="#check"/></svg><span>Também atendemos <b>adultos</b></span></li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg><span><b>Avaliação neuropsicológica</b></span></li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg><span><b>Psicoterapia</b> infantil, adolescente e adulta</span></li>
         </ul>
       </div>
       <div class="hero-foto">
@@ -373,7 +411,7 @@ ul,ol{margin:0;padding:0;list-style:none}
                 <span class="scrub-barra"><i id="scrubFill"></i></span>
               </div>
             </div>
-            <div class="flutua"><span class="num">4</span><p>áreas de cuidado: crianças, pais, adultos e aprendizagem</p></div>
+            <div class="flutua"><span class="num">2</span><p>especialidades: avaliação neuropsicológica e psicoterapia</p></div>
           </div>
         </div>
       </div>
@@ -427,40 +465,62 @@ ul,ol{margin:0;padding:0;list-style:none}
     </div>
   </section>
 
-  <!-- SERVIÇOS -->
+  <!-- SERVIÇOS / ESPECIALIDADES -->
   <section class="secao servicos" id="servicos" aria-labelledby="t-servicos">
     <div class="wrap">
       <div class="cab revela">
-        <p class="tag">Serviços</p>
-        <h2 class="titulo" id="t-servicos">Cuidado para <em>cada fase</em> da vida</h2>
-        <p class="sub">Atendimentos individualizados, que respeitam o tempo e a história de cada pessoa.</p>
+        <p class="tag">Especialidades</p>
+        <h2 class="titulo" id="t-servicos">Avaliação neuropsicológica e psicoterapia, <em>da infância à vida adulta</em></h2>
+        <p class="sub">Duas frentes que se completam: entender com clareza o que está acontecendo e acompanhar cada pessoa no seu processo.</p>
       </div>
-      <ul class="cards">
-        <li class="card revela">
-          <span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="6" r="3"/><path d="M8 21v-5l-2-3 3-3h6l3 3-2 3v5"/></svg></span>
-          <h3>Psicologia infantil</h3>
-          <p>Pelo brincar e por recursos adequados à idade, a criança aprende a expressar e lidar com o que sente.</p>
-          <span class="publico">Crianças</span>
-        </li>
-        <li class="card revela">
-          <span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2.2-5.5 5-5.5s5 2.5 5 5.5M13.5 20c.3-2.4 1.7-4 3.5-4s3.4 1.6 3.5 4"/></svg></span>
-          <h3>Orientação de pais</h3>
-          <p>Encontros com os responsáveis para entender o momento da criança e construir uma rotina de cuidado em casa.</p>
-          <span class="publico">Pais e famílias</span>
-        </li>
-        <li class="card revela">
-          <span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18v-1a6 6 0 0 1 6-6h0"/><circle cx="10" cy="6" r="3.2"/><path d="M15 13h6M15 17h6M15 21h4"/></svg></span>
-          <h3>Psicoterapia para adultos</h3>
-          <p>Um espaço seguro para falar de ansiedade, relações, trabalho, perdas e tudo o que tem pedido atenção.</p>
-          <span class="publico">Adultos</span>
-        </li>
-        <li class="card revela">
-          <span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5M9 8h7M9 12h5"/></svg></span>
-          <h3>Neuropsicopedagogia</h3>
-          <p>Avaliação e intervenção em dificuldades de aprendizagem, atenção, leitura e escrita, junto da família e da escola.</p>
-          <span class="publico">Aprendizagem</span>
-        </li>
-      </ul>
+      <div class="pilares">
+        <article class="pilar revela" aria-labelledby="t-avaliacao">
+          <div class="pilar-topo">
+            <span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3A3.5 3.5 0 0 0 6 6.5v.3A3.5 3.5 0 0 0 4 10a3.5 3.5 0 0 0 1.2 2.6A3.5 3.5 0 0 0 6 17.5 3.5 3.5 0 0 0 9.5 21c1.4 0 2.5-.8 2.5-2V5a2 2 0 0 0-2.5-2Z"/><path d="M14.5 3A3.5 3.5 0 0 1 18 6.5v.3a3.5 3.5 0 0 1 2 3.2 3.5 3.5 0 0 1-1.2 2.6 3.5 3.5 0 0 1-.8 4.9A3.5 3.5 0 0 1 14.5 21c-1.4 0-2.5-.8-2.5-2"/><path d="M12 8h2.5M12 13h3"/></svg></span>
+            <span class="idades">Crianças · Adolescentes · Adultos</span>
+          </div>
+          <h3 id="t-avaliacao">Avaliação neuropsicológica</h3>
+          <p class="pilar-desc">Uma investigação detalhada de como funcionam a atenção, a memória, a linguagem, o raciocínio e as emoções. Ela ajuda a compreender as dificuldades e a definir o melhor caminho de cuidado.</p>
+          <p class="pilar-sub">Indicada quando há:</p>
+          <ul class="pilar-lista">
+            <li><svg aria-hidden="true"><use href="#check"/></svg>Dificuldades de atenção, concentração ou aprendizagem</li>
+            <li><svg aria-hidden="true"><use href="#check"/></svg>Suspeita de TDAH, TEA ou outras questões do neurodesenvolvimento</li>
+            <li><svg aria-hidden="true"><use href="#check"/></svg>Mudanças de memória, comportamento ou humor</li>
+            <li><svg aria-hidden="true"><use href="#check"/></svg>Necessidade de um parecer para escola, médico ou trabalho</li>
+          </ul>
+          <ol class="etapas" aria-label="Como funciona a avaliação">
+            <li><b>Entrevista inicial</b><span>Conhecemos a história e a demanda</span></li>
+            <li><b>Sessões de testagem</b><span>Testes e atividades padronizados</span></li>
+            <li><b>Devolutiva e laudo</b><span>Resultados explicados com orientações</span></li>
+          </ol>
+          <a class="btn btn-wa" data-wa data-msg="Olá! Vi o site do Espaço Arco Íris e gostaria de informações sobre a avaliação neuropsicológica." href="https://wa.me/554735123486" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Quero saber sobre a avaliação</a>
+        </article>
+
+        <article class="pilar pilar-terapia revela" aria-labelledby="t-terapia">
+          <div class="pilar-topo">
+            <span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/><path d="M9 11h6"/></svg></span>
+            <span class="idades">Crianças · Adolescentes · Adultos</span>
+          </div>
+          <h3 id="t-terapia">Psicoterapia</h3>
+          <p class="pilar-desc">Um espaço seguro e contínuo para compreender sentimentos, lidar com dificuldades e construir novos caminhos, com abordagem adequada a cada fase da vida.</p>
+          <ul class="fases">
+            <li>
+              <span class="fase-tag">Infantil</span>
+              <p>Pelo brincar e por recursos adequados à idade, a criança expressa e elabora o que sente. Inclui <b>orientação contínua aos pais</b>.</p>
+            </li>
+            <li>
+              <span class="fase-tag">Adolescentes</span>
+              <p>Um espaço próprio para lidar com pressões, relações, identidade e escolhas, com sigilo e acordos claros com a família.</p>
+            </li>
+            <li>
+              <span class="fase-tag">Adultos</span>
+              <p>Ansiedade, humor, relações, trabalho, perdas e tudo o que tem pedido atenção.</p>
+            </li>
+          </ul>
+          <a class="btn btn-ouro" data-wa data-msg="Olá! Vi o site do Espaço Arco Íris e gostaria de informações sobre psicoterapia." href="https://wa.me/554735123486" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Quero começar a terapia</a>
+        </article>
+      </div>
+      <p class="ponte revela"><b>Não sabe por onde começar?</b> Muitas vezes a avaliação orienta a psicoterapia, e as duas caminham juntas. Na primeira conversa indicamos o caminho mais adequado para você ou seu filho.</p>
     </div>
   </section>
 
@@ -475,7 +535,7 @@ ul,ol{margin:0;padding:0;list-style:none}
       <ul class="dif-grid">
         <li class="dif revela"><span class="n">01</span><h3>Ambiente acolhedor</h3><p>Salas confortáveis e reservadas, pensadas para que crianças e adultos se sintam seguros desde o primeiro dia.</p></li>
         <li class="dif revela"><span class="n">02</span><h3>Família junto no processo</h3><p>Os responsáveis recebem orientação contínua para apoiar a criança no dia a dia.</p></li>
-        <li class="dif revela"><span class="n">03</span><h3>Psicologia e aprendizagem</h3><p>Psicologia e neuropsicopedagogia no mesmo espaço, com um olhar integrado sobre o desenvolvimento.</p></li>
+        <li class="dif revela"><span class="n">03</span><h3>Avaliação e terapia integradas</h3><p>Do entendimento ao acompanhamento no mesmo lugar: a avaliação neuropsicológica orienta e a psicoterapia cuida.</p></li>
         <li class="dif revela"><span class="n">04</span><h3>Atendimento individualizado</h3><p>Cada plano de acompanhamento é construído a partir da história e das necessidades de quem chega.</p></li>
         <li class="dif revela"><span class="n">05</span><h3>Horários até as 20h</h3><p>Atendimento de segunda a sexta, das 8h às 20h, para encaixar na rotina da família.</p></li>
         <li class="dif revela"><span class="n">06</span><h3>Ética e sigilo</h3><p>Trabalho pautado no Código de Ética do Psicólogo, com sigilo e combinados claros desde o início.</p></li>
@@ -525,7 +585,7 @@ ul,ol{margin:0;padding:0;list-style:none}
         <p class="tag">Sobre</p>
         <h2 class="titulo" id="t-sobre">Um espaço onde cada pessoa é <em>vista por inteiro</em></h2>
         <p class="sub">O Espaço Arco Íris nasceu em Guaramirim com um propósito: oferecer um atendimento em psicologia baseado em ética, cuidado e compromisso com cada pessoa atendida.</p>
-        <p>Assim como as cores de um arco-íris, cada criança, família e adulto chega com uma história única. Nossa equipe de psicólogas e neuropsicopedagoga trabalha de forma integrada para compreender essa história e construir, junto com você, novos caminhos.</p>
+        <p>Assim como as cores de um arco-íris, cada criança, família e adulto chega com uma história única. Nossa equipe de psicólogas atua em avaliação neuropsicológica e psicoterapia, da infância à vida adulta, e trabalha de forma integrada para compreender essa história e construir, junto com você, novos caminhos.</p>
         <ul class="lista">
           <li><svg aria-hidden="true"><use href="#check"/></svg>Profissionais com registro em seus conselhos</li>
           <li><svg aria-hidden="true"><use href="#check"/></svg>Supervisão e formação contínuas</li>
@@ -579,7 +639,7 @@ ul,ol{margin:0;padding:0;list-style:none}
       <div class="cta-box revela">
         <div>
           <h2 id="t-cta">O primeiro passo pode ser <em>uma mensagem.</em></h2>
-          <p>Conte um pouco sobre o que está acontecendo. A gente indica o atendimento mais adequado, os horários disponíveis e tira suas dúvidas, sem compromisso.</p>
+          <p>Conte um pouco sobre o que está acontecendo. A gente indica se o caminho é a avaliação neuropsicológica, a psicoterapia ou as duas, informa os horários disponíveis e tira suas dúvidas, sem compromisso.</p>
         </div>
         <div class="cta-acoes">
           <a class="btn btn-ouro" data-wa href="https://wa.me/554735123486" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Chamar no WhatsApp</a>
@@ -596,11 +656,11 @@ ul,ol{margin:0;padding:0;list-style:none}
     <div class="rod-grid">
       <div>
         <a class="marca" href="#inicio"><svg aria-hidden="true"><use href="#logo"/></svg><span><b>Espaço Arco Íris</b><small>Psicologia</small></span></a>
-        <p style="margin-top:16px;max-width:30em">Psicologia infantil, orientação de pais, adultos e neuropsicopedagogia em Guaramirim – SC.</p>
+        <p style="margin-top:16px;max-width:30em">Avaliação neuropsicológica e psicoterapia infantil, de adolescentes e adultos em Guaramirim – SC.</p>
       </div>
       <div>
         <h3>Navegação</h3>
-        <ul><li><a href="#servicos">Serviços</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#localizacao">Localização</a></li></ul>
+        <ul><li><a href="#servicos">Especialidades</a></li><li><a href="#diferenciais">Diferenciais</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#localizacao">Localização</a></li></ul>
       </div>
       <div>
         <h3>Contato</h3>
@@ -633,7 +693,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 (function(){
   var WA = "554735123486";
   var MSG = "Olá! Vi o site do Espaço Arco Íris e gostaria de informações sobre atendimento.";
-  document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG); });
+  document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(a.getAttribute("data-msg") || MSG); });
 
   var nav = document.getElementById("nav");
   var onScroll = function(){ nav.classList.toggle("rolou", window.scrollY > 8); };
