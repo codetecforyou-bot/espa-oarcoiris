@@ -89,7 +89,8 @@ ul,ol{margin:0;padding:0;list-style:none}
   .burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
   .menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gutter) 20px;background:var(--fundo);border-bottom:1px solid var(--linha)}
   .menu.aberto{display:flex}
-  .menu a:not(.btn){padding:15px 0;border-bottom:1px solid var(--linha);font-size:1rem;color:var(--texto)}
+  .menu a:not(.btn){display:flex;align-items:center;min-height:52px;padding:0;border-bottom:1px solid var(--linha);font-size:1.0625rem;color:var(--texto)}
+  .menu{max-height:calc(100vh - 76px);overflow-y:auto;box-shadow:0 20px 30px -20px rgba(14,59,34,.35)}
   .menu .btn{margin-top:16px;min-height:52px}
 }
 
@@ -602,6 +603,44 @@ body{font-size:1rem;line-height:1.7}
 .redes a:hover{background:var(--dourado);border-color:var(--dourado);color:var(--verde-escuro)}
 .redes a:hover svg{color:var(--verde-escuro)}
 
+
+/* ===== Ajustes de uso no celular (revisão 360px) ===== */
+/* Áreas de toque de no mínimo 44px */
+.marca{min-height:44px}
+.selo{min-height:44px}
+.membro-link{min-height:44px;padding-top:0;padding-bottom:0;margin-top:auto}
+.membro-texto .membro-link{margin-top:auto}
+.dep-nota{font-size:.875rem}
+.dep-nota a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+.bloco address a{display:inline-flex;align-items:center;min-height:44px}
+.rodape ul li+li{margin-top:0}
+.rodape ul:not(.redes) a{display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.rodape ul:not(.redes) li:not(:has(a)){padding:10px 0}
+.rod-base{font-size:.875rem}
+.crise a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 6px;margin:0 -4px;border-radius:8px;text-decoration:underline;text-underline-offset:3px}
+.cta-acoes small{font-size:.875rem}
+.scrub-dica{font-size:.875rem}
+.marca small{font-size:.6875rem}
+/* WhatsApp fixo: some quando outro botão de WhatsApp já está na tela */
+.wa-fixo{transition:opacity .25s,visibility .25s,transform .25s}
+.wa-fixo.oculto{opacity:0;visibility:hidden;transform:translateY(12px)}
+@media (max-width:600px){
+  /* Títulos proporcionais à tela pequena */
+  .titulo{font-size:clamp(1.875rem,8.6vw,2.25rem);line-height:1.05}
+  .hero h1{font-size:clamp(2.125rem,10vw,2.5rem)}
+  .cta h2{font-size:clamp(2rem,9.6vw,2.5rem)}
+  .pilar h3,.d1 h3,.m1 h3{font-size:clamp(1.75rem,8vw,2rem)}
+  .dep-destaque blockquote{font-size:1.25rem}
+  .nota strong{font-size:3rem}
+  .sub,.hero .sub{font-size:1rem}
+  .marca small{font-size:.75rem;letter-spacing:.22em}
+  .wa-fixo{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  .wa-fixo .bolha{width:54px;height:54px}
+  .wa-fixo .bolha svg{width:28px;height:28px}
+  .rodape{padding-bottom:calc(32px + 70px)}
+  .secao{padding-block:clamp(64px,16vw,88px)}
+}
+
 /* Imagens: revelação suave ao entrar na tela (cortina + zoom de saída) */
 .mapa{position:relative}
 @media (prefers-reduced-motion:no-preference){
@@ -800,7 +839,7 @@ body{font-size:1rem;line-height:1.7}
       <div class="eq-grid">
         <article class="membro m1" aria-labelledby="t-yasmin-cotchello">
           <figure class="membro-foto img-anim" style="--d:0s">
-            <img src="img/equipe/yasmin-cotchello-480.webp" srcset="img/equipe/yasmin-cotchello-480.webp 480w, img/equipe/yasmin-cotchello-627.webp 627w" sizes="(min-width: 901px) 34vw, 100vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Yasmin Cotchello, sorrindo, com blusa preta, apoiando o rosto na mão.">
+            <img src="img/equipe/yasmin-cotchello-480.webp" srcset="img/equipe/yasmin-cotchello-480.webp 480w, img/equipe/yasmin-cotchello-627.webp 627w" sizes="(min-width: 1001px) 34vw, 100vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Yasmin Cotchello, sorrindo, com blusa preta, apoiando o rosto na mão.">
           </figure>
           <div class="membro-texto revela">
             <h3 id="t-yasmin-cotchello">Yasmin Cotchello</h3>
@@ -811,7 +850,7 @@ body{font-size:1rem;line-height:1.7}
         </article>
         <article class="membro m2" aria-labelledby="t-rafaela-moraes-de-oliveira">
           <figure class="membro-foto img-anim" style="--d:.12s">
-            <img src="img/equipe/rafaela-moraes-de-oliveira-480.webp" srcset="img/equipe/rafaela-moraes-de-oliveira-480.webp 480w, img/equipe/rafaela-moraes-de-oliveira-627.webp 627w" sizes="(min-width: 901px) 18vw, 40vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Rafaela Moraes de Oliveira, sorrindo, sentada, com blusa branca de babados.">
+            <img src="img/equipe/rafaela-moraes-de-oliveira-480.webp" srcset="img/equipe/rafaela-moraes-de-oliveira-480.webp 480w, img/equipe/rafaela-moraes-de-oliveira-627.webp 627w" sizes="(min-width: 1001px) 18vw, (min-width: 601px) 40vw, 100vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Rafaela Moraes de Oliveira, sorrindo, sentada, com blusa branca de babados.">
           </figure>
           <div class="membro-texto revela">
             <h3 id="t-rafaela-moraes-de-oliveira">Rafaela Moraes de Oliveira</h3>
@@ -822,7 +861,7 @@ body{font-size:1rem;line-height:1.7}
         </article>
         <article class="membro m3" aria-labelledby="t-luana-bellini">
           <figure class="membro-foto img-anim" style="--d:.24s">
-            <img src="img/equipe/luana-bellini-480.webp" srcset="img/equipe/luana-bellini-480.webp 480w, img/equipe/luana-bellini-627.webp 627w" sizes="(min-width: 901px) 18vw, 40vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Luana Bellini, sorrindo, com camisa clara, em frente a uma parede verde.">
+            <img src="img/equipe/luana-bellini-480.webp" srcset="img/equipe/luana-bellini-480.webp 480w, img/equipe/luana-bellini-627.webp 627w" sizes="(min-width: 1001px) 18vw, (min-width: 601px) 40vw, 100vw" width="627" height="866" loading="lazy" decoding="async" alt="Retrato da psicóloga Luana Bellini, sorrindo, com camisa clara, em frente a uma parede verde.">
           </figure>
           <div class="membro-texto revela">
             <h3 id="t-luana-bellini">Luana Bellini</h3>
@@ -1053,6 +1092,23 @@ body{font-size:1rem;line-height:1.7}
   btn.addEventListener("click", function(){ var a = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", String(!a)); menu.classList.toggle("aberto", !a); });
   menu.addEventListener("click", function(e){ if (e.target.closest("a")) fechar(); });
   document.addEventListener("keydown", function(e){ if (e.key === "Escape" && menu.classList.contains("aberto")) { fechar(); btn.focus(); } });
+  document.addEventListener("click", function(e){ if (menu.classList.contains("aberto") && !e.target.closest("#nav")) fechar(); });
+  var yMenu = 0;
+  btn.addEventListener("click", function(){ yMenu = window.scrollY; });
+  window.addEventListener("scroll", function(){ if (menu.classList.contains("aberto") && Math.abs(window.scrollY - yMenu) > 60) fechar(); }, {passive:true});
+
+  /* Botão fixo de WhatsApp: esconde quando já há outro botão de WhatsApp visível, para não cobrir conteúdo */
+  (function(){
+    var fixo = document.querySelector(".wa-fixo");
+    if (!fixo || !("IntersectionObserver" in window)) return;
+    var alvos = [].slice.call(document.querySelectorAll("main [data-wa], footer [data-wa], .cta, .rodape")).filter(function(el){ return !el.closest(".wa-fixo"); });
+    var vis = new Set();
+    var io2 = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if (x.isIntersecting) vis.add(x.target); else vis.delete(x.target); });
+      fixo.classList.toggle("oculto", vis.size > 0);
+    }, { threshold: 0.01 });
+    alvos.forEach(function(el){ io2.observe(el); });
+  })();
 
   var els = document.querySelectorAll(".revela, .img-anim");
   if ("IntersectionObserver" in window) {
@@ -1117,7 +1173,9 @@ body{font-size:1rem;line-height:1.7}
 
   // Resolução conforme o tamanho real em tela: 1080×1920 em telas retina/grandes
   var dpr = Math.min(window.devicePixelRatio || 1, 3);
+  var economia = (navigator.connection && navigator.connection.saveData) || window.innerWidth < 600;
   var pasta = arco.getBoundingClientRect().width * dpr > 760 ? "video/1080/" : "video/720/";
+  var PASSO = economia ? 2 : 1;
   function url(i){ return pasta + "f" + ("00" + (i + 1)).slice(-3) + ".webp"; }
 
   // Carga em camadas: 1º e último quadro, depois a cada 32, 16, 8...
@@ -1125,7 +1183,7 @@ body{font-size:1rem;line-height:1.7}
   var ordem = [], visto = new Uint8Array(TOTAL);
   function add(i){ if (!visto[i]) { visto[i] = 1; ordem.push(i); } }
   add(0); add(TOTAL - 1);
-  [32, 16, 8, 4, 2, 1].forEach(function(p){ for (var i = 0; i < TOTAL; i += p) add(i); });
+  [32, 16, 8, 4, 2, 1].filter(function(p){ return p >= PASSO; }).forEach(function(p){ for (var i = 0; i < TOTAL; i += p) add(i); });
   var fila = 0;
   function proximo(){
     if (fila >= ordem.length) return;
